@@ -1,0 +1,4 @@
+create 3 different .html files 
+- login.html
+- register.html
+- homepage.html
