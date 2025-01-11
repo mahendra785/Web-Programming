@@ -2,3 +2,10 @@ create 3 different .html files
 - login.html
 - register.html
 - homepage.html
+
+
+sub reddit kind of thing where people can discuss related to a particular question
+room creation using sockets
+add to watchlist
+drm?(not sure hard to implement)
+scene bookmarks
