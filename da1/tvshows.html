@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>StreamIt - TV Shows</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .content-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 100px 20px 50px;
+      }
+
+      .content-container h1 {
+        color: var(--text-white);
+        font-size: 52px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .show-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 40px;
+        justify-content: center;
+      }
+
+      .show-item {
+        background-color: var(--light-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .show-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .show-item img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        filter: brightness(0.8);
+        transition: filter 0.3s ease;
+      }
+
+      .show-item:hover img {
+        filter: brightness(1);
+      }
+
+      .show-item h3 {
+        color: var(--text-white);
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.7);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="nav-stuff">
+        <div class="cool-logo">StreamIt</div>
+        <div class="clicky-things">
+          <div class="clicky-item">Home</div>
+          <div class="clicky-item">TV Shows</div>
+          <div class="clicky-item">Movies</div>
+        </div>
+        <a href="./profile.html"
+          ><button class="login-button">Profile</button></a
+        >
+      </div>
+    </div>
+
+    <div class="content-container">
+      <h1>TV Shows</h1>
+      <div
+        class="filter-container"
+        style="
+          margin-bottom: 20px;
+          padding: 10px;
+          height: 3px;
+          border-radius: 5px;
+        "
+      >
+        <select id="genre" name="genre">
+          <option value="all">All</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+          <option value="action">Action</option>
+        </select>
+      </div>
+      <div class="show-grid">
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+        <div class="show-item">
+          <img src="./download.jpg" alt="TV Show 1" />
+          <h3>Dilwale Dulhania Le Jayenge</h3>
+        </div>
+
+        <!-- ... (repeat for all show items) ... -->
+      </div>
+    </div>
+  </body>
+</html>

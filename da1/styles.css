@@ -16,15 +16,21 @@ body {
     background-color: var(--dark-bg);
     color: var(--text-white);
     line-height: 1.6;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* Top Bar / Navigation */
 .top-bar {
     background-color: transparent;
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
+    transition: background-color 0.3s ease;
+}
+
+.top-bar.scrolled {
+    background-color: var(--dark-bg);
 }
 
 .nav-stuff {
@@ -42,23 +48,20 @@ body {
     color: var(--main-red);
 }
 
-.clicky-things{
-    width: 50%;
+.clicky-things {
+    display: flex;
+    align-items: center;
+}
+
+.clicky-item {
     color: var(--text-white);
     text-decoration: none;
     margin-left: 20px;
     font-weight: 400;
     transition: color 0.3s ease;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-evenly
+}
 
-}
-.clicky-item{
-    text-decoration:#ffffff ;
-}
-.clicky-things a:hover {
+.clicky-item:hover, .clicky-item.active {
     color: var(--main-red);
 }
 
@@ -72,14 +75,13 @@ body {
     border-radius: 3px;
     font-size: 16px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .login-button {
-    background-color:red;
-    color: white;
-    border:1px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: var(--main-red);
+    color: var(--text-white);
+    border: none;
 }
 
 .signup-button {
@@ -89,11 +91,11 @@ body {
 }
 
 .login-button:hover, .signup-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
-
 }
 
+/* Hero Section */
 .big-attention-grabber {
     height: 100vh;
     display: flex;
@@ -101,9 +103,9 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('./background.png')
+                url('./background.png') no-repeat center center;
+    background-size: cover;
 }
 
 .middle-text {
@@ -143,6 +145,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Features Section */
 .cool-features {
     display: flex;
     justify-content: space-around;
@@ -174,6 +177,7 @@ body {
     color: var(--text-gray);
 }
 
+/* Footer */
 .bottom-stuff {
     text-align: center;
     padding: 30px 20px;
@@ -195,10 +199,11 @@ body {
     text-decoration: underline;
 }
 
-/* Auth pages styles */
+/* Auth Pages */
 .auth-page {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('background.png') ;
+                url('background.png') no-repeat center center;
+    background-size: cover;
     min-height: 100vh;
 }
 
@@ -216,7 +221,8 @@ body {
     border-radius: 4px;
     padding: 60px 68px 40px;
     margin: 0 auto;
-    width : 30%;
+    width: 100%;
+    max-width: 450px;
 }
 
 .login-box h2,
@@ -296,4 +302,276 @@ body {
 .signup-link a:hover,
 .login-link a:hover {
     text-decoration: underline;
+}
+
+/* Content Pages (Movies, TV Shows, etc.) */
+.content-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 100px 20px 50px;
+}
+
+.content-container h1 {
+    color: var(--text-white);
+    font-size: 52px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.movie-grid,
+.show-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.movie-item,
+.show-item {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 250px;
+    width:300px;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-item:hover,
+.show-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.movie-item img,
+.show-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.movie-item:hover img,
+.show-item:hover img {
+    filter: brightness(1);
+}
+
+.movie-item h3,
+.show-item h3 {
+    color: var(--text-white);
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+  }
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.filter-section::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    background-color: var(--light-bg);
+    color: var(--text-gray);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--main-red);
+    color: var(--text-white);
+}
+
+/* Profile Page */
+.profile-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-info h2 {
+    color: var(--text-white);
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.profile-info p {
+    color: var(--text-gray);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.watchlist {
+    background-color: var(--light-bg);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.watchlist h3 {
+    color: var(--text-white);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.watchlist ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.watchlist li {
+    color: var(--text-gray);
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.watchlist li:last-child {
+    border-bottom: none;
+}
+
+.watchlist li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Video Player Page */
+.video-player {
+    width: 100%;
+    max-height: 70vh;
+    background-color: #000;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.video-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.video-info h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.video-info .description {
+    color: #999;
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.video-controls {
+    display: flex;
+    gap: 20px;
+}
+
+.video-controls .red-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-stuff {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .clicky-things {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .clicky-item {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .auth-buttons {
+        margin-top: 20px;
+    }
+
+    .big-attention-grabber h1 {
+        font-size: 40px;
+    }
+
+    .big-attention-grabber p {
+        font-size: 20px;
+    }
+
+    .login-box,
+    .signup-box {
+        padding: 40px 30px;
+    }
+
+    .content-container h1 {
+        font-size: 40px;
+    }
+
+    .movie-grid,
+    .show-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .movie-item img,
+    .show-item img {
+        height: 300px;
+    }
+
+    .profile-box {
+        padding: 30px;
+    }
+
+    .avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .video-controls {
+        flex-direction: column;
+    }
 }
