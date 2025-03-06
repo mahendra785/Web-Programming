@@ -29,7 +29,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.top-bar.scrolled {
+.top-bar, .scrolled {
     background-color: var(--dark-bg);
 }
 
@@ -510,68 +510,4 @@ body {
     padding: 12px 25px;
     font-size: 16px;
     flex-grow: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-stuff {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .clicky-things {
-        margin-top: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .clicky-item {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-
-    .auth-buttons {
-        margin-top: 20px;
-    }
-
-    .big-attention-grabber h1 {
-        font-size: 40px;
-    }
-
-    .big-attention-grabber p {
-        font-size: 20px;
-    }
-
-    .login-box,
-    .signup-box {
-        padding: 40px 30px;
-    }
-
-    .content-container h1 {
-        font-size: 40px;
-    }
-
-    .movie-grid,
-    .show-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 20px;
-    }
-
-    .movie-item img,
-    .show-item img {
-        height: 300px;
-    }
-
-    .profile-box {
-        padding: 30px;
-    }
-
-    .avatar {
-        width: 150px;
-        height: 150px;
-    }
-
-    .video-controls {
-        flex-direction: column;
-    }
 }
